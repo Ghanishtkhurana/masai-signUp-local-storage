@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        img{
+            /* height: 100px;
+            width: 150px;
+            margin: 20px 0px 61px 541px; */
+            margin: auto;
+            display: flex;
+        }
+        .card{
+            height: auto;
+            width: 34%;
+            margin: auto;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border-radius: 15px;
+            padding: 24px 0px 1px 0px;
+        }
+        h2{
+            text-align: center;
+            
+        }
+        input{
+            margin: 0px 0px 0px 15px;
+            padding: 15px 205px 14px 10px;
+        }
+        p{
+            margin: 34px 0px 8px 15px;
+            font-size: 13px;
+        }
+        #para{
+            margin: 46px 0px 30px 0px;
+            text-align: center;
+            font-size: 12px;
+        }
+        #submit{
+            padding: 15px 165px 12px 174px;
+        }
+        .last{
+            font-size: 14px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="">
+    <div class="card">
+        <form action="" id="information">
+        <h2>Sign Up</h2>
+        <p>Full name</p>
+        <input type="text" id="name" placeholder="Enter your full name">
+        <p>E mail</p>
+        <input type="text" id="mail" placeholder="Enter your email">
+        <p>Password</p>
+        <input type="text"  id="pass" placeholder="Enter your password">
+        <p id="para">By signing up , I accept Masaischool <a href="">Terms and Conditions</a> and acknowledge the <a href="">Privacy Policy</a></p>
+        <input type="submit" id="submit" value="Sign Up">
+        <h2 class="last">Already have a account?<a href="https://sso.masaischool.com/signin/">Sign In</a></h2>
+    </form>
+    </div>
+  
+</body>
+
+</html>
+
+<script>
+    document.querySelector("#information").addEventListener("submit",send)
+    
+    var data =  JSON.parse(localStorage.getItem("userdata")) || [] 
+
+    function send(){
+        event.preventDefault()
+
+        var dataObj = {
+           naam : information.name.value,
+           tala : information.mail.value,
+           chabi : information.pass.value,
+        }
+        console.log(dataObj)
+
+        data.push(dataObj)
+
+        localStorage.setItem("Userdata",JSON.stringify(data))
+    }
+</script>
+
+<!-- document.querySelector("#investorForm").addEventListener("submit",investorsFun)
+ 
+var investorArr = JSON.parse(localStorage.getItem("investorData")) || []
+
+function investorsFun(){
+    event.preventDefault()
+
+    var investorObj = {
+        investorImg :investorForm.imgURL.value ,
+        investorName : investorForm.name.value ,
+        investorRole : investorForm.role.value ,
+        investorCompanyLogo: investorForm.companyLogo.value,
+    }
+
+    console.log(investorObj)
+
+    investorArr.push(investorObj)
+
+    localStorage.setItem("investorData",JSON.stringify(investorArr))
+} -->
